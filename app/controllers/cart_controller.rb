@@ -1,7 +1,12 @@
 class CartController < ApplicationController
   # has_many :item カートはモデルじゃない
   def index
-    @cart = Item.find(session[:cart])
+    if session[:cart].blank?
+      puts "there is no purchase"
+    else
+      session[:cart].sort!
+      @cart = session[:cart].map { |item_id| Item.find(item_id) }
+    end
   end
 
   def create

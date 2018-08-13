@@ -1,6 +1,9 @@
 <tbody>
 <h1>カートの中身</h1>
 <% sum = 0 %>
+<% if @cart.blank? %>
+<%= "カートは空です" %><br>
+<% else %>
 <% @cart.each do |item| %>
 <tr>
 <td>商品番号: <%= item.id %></td>
@@ -12,6 +15,7 @@
 </tr>
 </tbody>
 <br>
+<% end %>
 
 
 <%= link_to 'Check Products', root_path %>
