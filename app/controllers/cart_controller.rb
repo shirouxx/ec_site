@@ -1,9 +1,7 @@
 class CartController < ApplicationController
   # has_many :item カートはモデルじゃない
   def index
-    if session[:cart].blank?
-      puts "there is no purchase"
-    else
+    if session[:cart] != nil
       session[:cart].sort!
       @cart = session[:cart].map { |item_id| Item.find(item_id) }
     end
@@ -12,8 +10,7 @@ class CartController < ApplicationController
   def create
     session[:cart] = [] unless session[:cart]
     session[:cart] << params[:item_id]
-    flash[:success] = "カートに追加できました！"
-    redirect_to root_path
+    redirect_to root_path, notice: 'カートに商品を入れました'
     # unless session[:cart]   #セッションにカートが無い場合
     #      session[:cart] = Cart.new　#新しいカートを追加
     # end
