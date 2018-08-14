@@ -19,4 +19,9 @@ class CartController < ApplicationController
     # <% session[:cart] = nil %> session情報全て削除  index.html内に記述
   end
 
+  def destroy
+    reset_session
+    redirect_to cart_index_path
+  end
+
 end

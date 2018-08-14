@@ -10,12 +10,13 @@
 <td>価格: <%= item.price %>円</td><br>
 <% sum += item.price %>
 <% end %><br>
-合計金額: <%= sum %>円
+合計金額: <%= sum %>円<br>
 
 </tr>
 </tbody>
 <br>
 <% end %>
-
-
+<% if session[:cart] != nil %>
+<%= button_to "Clear Cart", cart_path(session[:cart]), method: :delete%><br>
+<% end %>
 <%= link_to 'Check Products', root_path %>
