@@ -13,7 +13,10 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 # Upload a pircture
 gem 'carrierwave'
+# Resize a picture
 gem 'mini_magick'
+# Credit payment for test
+gem 'stripe'
 gem "rmagick", "~> 2.13.1"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

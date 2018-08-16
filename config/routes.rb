@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  get 'charges/new'
+  get 'charges/create'
   # get 'cart/index'
   # get 'cart/create'
   # get 'home/top'
   resources :items
   resources :cart
+  resources :charges
   root 'home#top'
     resources :pictures, only: [:create] do
     member do

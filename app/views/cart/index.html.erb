@@ -16,7 +16,26 @@
 </tbody>
 <br>
 <% end %>
+<!-- Stripe.setPublishableKey('pk_test_3ps82fl2u34IurHC87is6g56'); -->
 <% if session[:cart] != nil %>
+<%= form_tag charges_path do %>
+    <article>
+        <% if flash[:error].present? %>
+            <div id="error_explanation" >
+                <p><%= flash[:error] %></p>
+            </div>
+        <% end %>
+        <label class="amount">
+            <span>合計金額: <%= sum %>円</span>
+        </label>
+    </article>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description='商品のご購入'
+            data-amount="<%= sum %>"
+            data-currency="jpy"
+            data-locale="auto"></script>
+<% end %>
 <%= button_to "Clear Cart", cart_path(session[:cart]), method: :delete%><br>
 <% end %>
 <%= link_to 'Check Products', root_path %>
