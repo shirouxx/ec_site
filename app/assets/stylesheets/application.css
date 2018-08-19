@@ -13,3 +13,62 @@
  *= require_tree .
  *= require_self
  */
+body {
+	background-color: #BCB8AD;
+}
+p {
+	font-size:18px;
+}
+h1 {
+	font-size:18px;
+}
+
+.item {
+		color:black;
+}
+
+.paycheck {
+	text-align: center;
+}
+
+input {
+		position: relative;
+		display: inline-block;
+		padding: 0.25em 0.5em;
+		text-decoration: none;
+		color: #FFF;
+		background: #fd9535;/*色*/
+		border-radius: 4px;/*角の丸み*/
+		box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+		font-weight: bold;
+		border: solid 2px #d27d00;/*線色*/
+}
+ input:hover {
+	 box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+ }
+
+a {
+		position: relative;
+		padding-left: 25px;
+}
+a:before {
+		position: absolute;
+		content: '';
+		bottom: -3px;
+		left: 0;
+		width: 0;
+		height: 0;
+		border: none;
+		border-left: solid 15px transparent;
+		border-bottom: solid 15px #474859;
+		text-decoration: none ;
+}
+
+a:after {/*タブ*/
+		position: absolute;
+		content: '';
+		bottom: -3px;
+		left: 10px;
+		width: 100%;
+		border-bottom: solid 3px #474859;
+  }
