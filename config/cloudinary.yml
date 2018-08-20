@@ -1,19 +1,19 @@
 ---
-development:
-  cloud_name: hrfzdhz5q
-  api_key: '845455548181932'
-  api_secret: AZyR-bxU-8sgtoScDPU3XJ4Z0tc
-  enhance_image_tag: true
-  static_image_support: false
+# development:
+#   cloud_name: hrfzdhz5q
+#   api_key: '845455548181932'
+#   api_secret: AZyR-bxU-8sgtoScDPU3XJ4Z0tc
+#   enhance_image_tag: true
+#   static_image_support: false
 production:
   cloud_name: hrfzdhz5q
   api_key: '845455548181932'
   api_secret: AZyR-bxU-8sgtoScDPU3XJ4Z0tc
   enhance_image_tag: true
   static_image_support: true
-test:
-  cloud_name: hrfzdhz5q
-  api_key: '845455548181932'
-  api_secret: AZyR-bxU-8sgtoScDPU3XJ4Z0tc
-  enhance_image_tag: true
-  static_image_support: false
+# test:
+#   cloud_name: hrfzdhz5q
+#   api_key: '845455548181932'
+#   api_secret: AZyR-bxU-8sgtoScDPU3XJ4Z0tc
+#   enhance_image_tag: true
+#   static_image_support: false
