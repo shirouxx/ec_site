@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
        img.write "public/images/hoge.jpg"
     end
 
-    respond_to do |format|
+
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
@@ -40,7 +40,6 @@ class ItemsController < ApplicationController
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PATCH/PUT /items/1
@@ -75,6 +74,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :description, :price,　:image)
+      params.require(:item).permit(:name, :description, :price, :image)
     end
 end
