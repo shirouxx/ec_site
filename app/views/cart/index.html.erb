@@ -1,5 +1,5 @@
 <tbody>
-<h1>カートの中身</h1>
+<h1>注文一覧</h1>
 <% sum = 0 %>
 <% if @cart.blank? %>
 <%= "カートは空です" %><br>
@@ -10,13 +10,12 @@
 <td>価格: <%= item.price %>円</td><br>
 <% sum += item.price %>
 <% end %><br>
-合計金額: <%= sum %>円<br>
+<!-- 合計金額: <%= sum %>円<br> -->
 
 </tr>
 </tbody>
 <br>
 <% end %>
-<!-- Stripe.setPublishableKey('pk_test_3ps82fl2u34IurHC87is6g56'); -->
 <% if session[:cart] != nil %>
 <%= form_tag charges_path do %>
     <article>
@@ -30,12 +29,13 @@
         </label>
     </article>
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="pk_test_3ps82fl2u34IurHC87is6g56"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description='商品のご購入'
             data-amount="<%= sum %>"
             data-currency="jpy"
             data-locale="auto"></script>
 <% end %>
+<!-- 次回エラーが発生したらform_tag submit で実行 -->
 <%= button_to "Clear Cart", cart_path(session[:cart]), method: :delete%><br>
 <% end %>
 <%= link_to 'Check Products', root_path %>

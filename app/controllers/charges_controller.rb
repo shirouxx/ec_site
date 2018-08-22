@@ -3,7 +3,7 @@ class ChargesController < ApplicationController
   end
 
   def create
-    Stripe.api_key = 'sk_test_ZsDWQqBTJyTtCchqAC0R1I7W'
+    # Stripe.api_key = 'sk_test_ZsDWQqBTJyTtCchqAC0R1I7W'
     sum = 0
     @cart = session[:cart].map { |item_id| Item.find(item_id) }
     @cart.each do |item|

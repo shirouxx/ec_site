@@ -22,6 +22,10 @@ gem "rmagick", "~> 2.13.1"
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
+# .env enable
+gem 'dotenv-rails'
+# how did I miss this?! f**k me
+gem 'cloudinary'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

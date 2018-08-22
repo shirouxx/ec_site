@@ -3,9 +3,10 @@
 	<p>商品一覧</p>
 	<% @items.each do |item| %>
 		<tr>
+			<div class="item">
 			<td><%= item.name %> :</td>
 			<td><%= item.price %>円</td><br>
-			<td><%= image_tag item.image.to_s %></td>
+			<td><%= image_tag item.image.to_s %></td></div>
 			<%= form_tag(cart_index_path, method: :post) do %>
 			    <%# hidden_field_tagによる商品IDの引継ぎ %>
 			    <%= hidden_field_tag(:item_id, item.id) %>
@@ -16,10 +17,3 @@
 </tbody>
 
 <%= link_to 'Check Cart', cart_index_path %>
-
-
-<!-- <% @items.each do |item| %>
-		 <tr>
-			 <td><%= image_tag item.image.to_s %></td>
-		 </tr>
-<% end %> -->
