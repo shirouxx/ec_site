@@ -26,13 +26,7 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
-    if params[:img] != nil
-       img = MiniMagick::Image.read(params[:img])
-       img.resize_to_fill "128x128"
-       img.write "public/images/hoge.jpg"
-    end
-
-
+    respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
@@ -40,6 +34,7 @@ class ItemsController < ApplicationController
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   # PATCH/PUT /items/1

@@ -1,7 +1,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::RMagick
-    process resize_to_fill: [128,128]
+    process resize_to_fill: [50,50]
     storage :file
    # アップロードファイルの保存先ディレクトリは上書き可能
    # 下記はデフォルトの保存先
@@ -12,8 +12,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   def extension_white_list
     %w(jpg jpeg gif png)
   end
-  # if Rails.env.production?
-  #   include Cloudinary::CarrierWave
+
+  include Cloudinary::CarrierWave if Rails.env.production?
   #   process :convert => 'png'
   #   process :tags => ['image']
   #
