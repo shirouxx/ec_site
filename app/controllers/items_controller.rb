@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   # belongs_to :cart　コントローラーはモデルじゃない
+  layout "items_application"
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items
