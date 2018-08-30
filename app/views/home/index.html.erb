@@ -1,0 +1,6 @@
+<p> Welcome to EC-site</p>
+<% if current_user %>
+	<%= link_to "買い物をする",top_path %>
+<% else %>
+	<p>ログインしてください</p>
+<% end %>

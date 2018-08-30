@@ -1,18 +1,17 @@
+<% console %>
 <tbody>
 <h1>注文一覧</h1>
 <% sum = 0 %>
 <% if @cart.blank? %>
 <%= "カートは空です" %><br>
 <% else %>
-<% @cart.each do |item| %>
+<% @cart.each_with_index do |item,i| %>
 <tr>
 <td>商品番号: <%= item.id %></td>
 <td>価格: <%= item.price %>円</td><br>
 <% sum += item.price %>
-<%= button_to "Clear Cart", cart_path(item), method: :patch, data: { confirm: 'Are you sure?' } %><br>
+<%= button_to "Clear Product", cart_path(item),number: i, method: :patch, data: { confirm: 'Are you sure?' } %><br>
 <% end %><br>
-<!-- 合計金額: <%= sum %>円<br> -->
-
 </tr>
 </tbody>
 <br>
@@ -38,4 +37,5 @@
 <% end %>
 <!-- 次回エラーが発生したらform_tag submit で実行 -->
 <% end %>
-<%= link_to 'Check Products', root_path %>
+<%= button_to "Clear Cart", '/cart/:id', method: :delete %><br>
+<%= link_to 'Check Products', top_path %>

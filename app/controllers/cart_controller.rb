@@ -10,27 +10,17 @@ class CartController < ApplicationController
   def create
     session[:cart] = [] unless session[:cart]
     session[:cart] << params[:item_id]
-    redirect_to root_path, notice: 'カートに商品を入れました'
-    # unless session[:cart]   #セッションにカートが無い場合
-    #      session[:cart] = Cart.new　#新しいカートを追加
-    # end
-    # @item = Item.find(params[:id])
-    # session[:cart] << @item
-    # <% session[:cart] = nil %> session情報全て削除  index.html内に記述
+    redirect_to top_path, notice: 'カートに商品を入れました'
   end
 
   def update
-    # 配列の中から特定の要素を削除
-    session.delete()
+    #@cart=はなくても良い
+    session[:cart].delete_at(session[:cart].find_index(params[:id]))
+    redirect_to cart_index_path
   end
 
   def destroy
-
-    # reset_session
-    # @cart = session[:cart].map { |item_id| Item.find(item_id) }
-    # @cart.destroy
-    # @cart =Item.find(@item_id)
-    # @cart.destroy
+    session[:cart] = [] #instead of reset_session
     redirect_to cart_index_path
   end
 
