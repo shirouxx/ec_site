@@ -4,6 +4,7 @@ class CartController < ApplicationController
     if session[:cart] != nil
       session[:cart].sort!
       @cart = session[:cart].map { |item_id| Item.find(item_id) }
+      @sum = @cart.pluck(:price).inject(:+)
     end
   end
 

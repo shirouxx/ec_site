@@ -1,16 +1,14 @@
 <% console %>
 <tbody>
 <h1>注文一覧</h1>
-<% sum = 0 %>
 <% if @cart.blank? %>
 <%= "カートは空です" %><br>
 <% else %>
-<% @cart.each_with_index do |item,i| %>
+<% @cart.each do |item| %>
 <tr>
 <td>商品番号: <%= item.id %></td>
 <td>価格: <%= item.price %>円</td><br>
-<% sum += item.price %>
-<%= button_to "Clear Product", cart_path(item),number: i, method: :patch, data: { confirm: 'Are you sure?' } %><br>
+<%= button_to "Clear Product", cart_path(item),method: :patch, data: { confirm: 'Are you sure?' } %><br>
 <% end %><br>
 </tr>
 </tbody>
@@ -25,13 +23,13 @@
             </div>
         <% end %>
         <label class="amount">
-            <span>合計金額: <%= sum %>円</span>
+            <span>合計金額: <%= @sum %>円</span>
         </label>
     </article>
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description='商品のご購入'
-            data-amount="<%= sum %>"
+            data-amount="<%= @sum %>"
             data-currency="jpy"
             data-locale="auto"></script>
 <% end %>
