@@ -1,11 +1,13 @@
 class CartController < ApplicationController
   # has_many :item カートはモデルじゃない
   def index
-    if session[:cart] != nil
-      session[:cart].sort!
-      @cart = session[:cart].map { |item_id| Item.find(item_id) }
-      @sum = @cart.pluck(:price).inject(:+)
-    end
+    # if session[:cart] != nil
+    #   session[:cart].sort!
+    #   @cart = session[:cart].map { |item_id| Item.find(item_id) }
+    #   @sum = @cart.pluck(:price).inject(:+)
+    # end
+     @cart = ((session[:cart] || []).map { |item_id| Item.find(item_id) }).sort!
+     @sum = @cart.pluck(:price).inject(:+)
   end
 
   def create
