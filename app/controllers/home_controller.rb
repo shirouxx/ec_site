@@ -9,5 +9,6 @@ class HomeController < ApplicationController
 
   def top
     @items = Item.all.order(:created_at)
+    #
   end
 end
