@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an application made to understand and exercise as to how EC-cite is basically made of.
 
-Things you may want to cover:
+* Feature
+Customer can buy products.
+
+Admin user can create and add products since products are not from seed.rb.
+
+By using 'gem Devise' provides series of 'log-in' feature.
 
 * Ruby version
+2.5.1
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Database
+Postgres
